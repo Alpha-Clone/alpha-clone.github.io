@@ -7,17 +7,18 @@
 .banner{
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(https://pixabay.com/get/gd0419a4b0a09facfc4b38c34df46996abf548dff4afc28f23876bfc0048b149f0d51d2dda9642aedfd837b33be0a01c5e0dee0c111ecffc75d472ee116f754cc15f09b99fb2750242c9f051e2a83d17e_1920.jpg);
+  background-color: #004157;
   background-size: cover;
   background-position: center;
 }
 .navbar{
-  width: 85%;
+  width: 100%;
   margin: auto;
   padding: 35px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #0a3322;
 }
 .logo{
   height: 100px;
@@ -64,11 +65,11 @@
 }
 .content a{
   text-decoration: none;
-  color: #0086b3;
+  color: #53bd91;
 }
 .content a:hover{
   cursor: pointer;
-  color: #00ccb9;
+  color: #5d9980;
   text-decoration: underline;
 }
 button{
