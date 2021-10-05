@@ -1,41 +1,69 @@
-*{
+
+:root {
+  --primary-color: #cc0000;
+  --secondary-color: #7c0000;
+  --main-padding: 5px;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  padding:  0;
-  font-family: arial, helvetica;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Roboto', sans-serif;
   color: #fff;
 }
-.banner{
-  width: 100%;
+
+.content {
+  display: grid;
   height: 100vh;
-  background-color: #004157;
-  background-size: cover;
-  background-position: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.3fr 1.5fr 1.5fr 0.3fr;
+  grid-template-areas:
+    "header header header header"
+    "main main main content1"
+    "content2 content2 content3 content3"
+    "footer footer footer footer";
+    /* grid-gap: 0.2rem; */
+    text-align: center;
 }
-.navbar{
+
+header {
   width: 100%;
-  margin: auto;
-  padding: 35px 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #0a3322;
+  justify-content: space-around;
+  background: #a7ffeb;
+  grid-area: header;
+  padding: var(--main-padding);
 }
-.logo{
-  height: 100px;
-  width: 120px;
+
+header .logo{
+  height: 40px;
+  width: 40px;
+  margin: 0 10px;
   cursor: pointer;
 }
-.navbar ul li{
+header input{
+  width: 40%;
+  margin: 0 10px;
+}
+
+header ul li{
   list-style: none;
   display: inline-block;
-  margin: 0 20px;
+  margin: 0 10px;
   position: relative;
 }
-.navbar ul li a{
+
+header ul li a{
   text-decoration: none;
   text-transform: uppercase;
 }
-.navbar ul li a::after{
+
+header ul li a::after{
   content: '';
   height: 3px;
   width: 0;
@@ -45,34 +73,57 @@
   bottom: -10px;
   transition: 0.3s;
 }
-.navbar ul li a:hover::after{
+
+header ul li a:hover::after{
   width: 100%;
 }
-.content{
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: center;
+
+main{
+  background: #84ffff;
+  grid-area: main;
+  padding-top: var(--main-padding);
 }
-.content h1{
+
+.content1 {
+  background: #6fffd2;
+  grid-area: content1;
+  padding-top: var(--main-padding);
+}
+
+.content1 h1{
   font-size: 70px;
   margin-top: 20px auto;
 }
-.content p{
+
+.content2 {
+  background: #64ffda;
+  grid-area: content2;
+  padding-top: var(--main-padding);
+}
+
+.content2 p{
   font-weight: 100;
   line-height: 25px;
 }
-.content a{
+
+.content2 a{
   text-decoration: none;
   color: #53bd91;
 }
-.content a:hover{
+
+.content2 a:hover{
   cursor: pointer;
   color: #5d9980;
   text-decoration: underline;
 }
-button{
+
+.content3 {
+  background: #73ffba;
+  grid-area: content3;
+  padding-top: var(--main-padding);
+}
+
+.content3 button {
   width: 200px;
   padding: 15px 0;
   text-align: center;
@@ -86,7 +137,8 @@ button{
   position: relative;
   overflow: hidden;
 }
-span{
+
+.content3 span{
   background: #0086b3;
   height: 100%;
   width: 0%;
@@ -97,6 +149,27 @@ span{
   z-index: -1;
   transition: 0.3s;
 }
-button:hover span{
+
+.content3 button:hover span{
   width: 100%;
+}
+
+footer {
+  background: #1de9b6;
+  grid-area: footer;
+  padding-top: var(--main-padding);
+}
+
+@media only screen and (max-width:550px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.8fr 0.4fr 2.2fr 1.2fr 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "content1"
+      "content2"
+      "content3"
+      "footer";
+  }
 }

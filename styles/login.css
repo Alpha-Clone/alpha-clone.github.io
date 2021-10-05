@@ -25,6 +25,7 @@ body{
   text-align: center;
   border-radius: 30px;
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
 }
 .box h1{
   color: white;
@@ -74,4 +75,9 @@ body{
 ::placeholder{
   color: white;
   opacity: 0.5;
+}
+
+.link {
+  text-decoration: underline;
+  color: #fff;
 }
