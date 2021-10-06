@@ -1,7 +1,7 @@
 
 :root {
   --primary-color: #cc0000;
-  --secondary-color: #7c0000;
+  --secondary-color: #ff4d4d;
   --main-padding: 5px;
 }
 
@@ -20,11 +20,13 @@ html, body {
   display: grid;
   height: 100vh;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.3fr 1.5fr 1.5fr 0.3fr;
+  grid-template-rows: 0.6fr 1.2fr 1.2fr 1.2fr 1.2fr 0.3fr;
   grid-template-areas:
     "header header header header"
-    "main main main content1"
+    "content1 content1 content1 content1"
     "content2 content2 content3 content3"
+    "content4 content5 content6 content7"
+    "content8 content8 content8 content8"
     "footer footer footer footer";
     /* grid-gap: 0.2rem; */
     text-align: center;
@@ -32,144 +34,124 @@ html, body {
 
 header {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background: #a7ffeb;
+  background: var(--secondary-color);
   grid-area: header;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
   padding: var(--main-padding);
+  min-width: 80px;
 }
 
-header .logo{
-  height: 40px;
-  width: 40px;
-  margin: 0 10px;
+.logo{
+  height: 60px;
+  width: auto;
   cursor: pointer;
 }
-header input{
-  width: 40%;
-  margin: 0 10px;
+
+.logo:hover{
+ border: 2px solid #fff;
 }
 
-header ul li{
-  list-style: none;
-  display: inline-block;
-  margin: 0 10px;
-  position: relative;
+.nav-fill {
+  width: 70%;
+  height: 80%;
+  margin-left: 5px;
 }
 
-header ul li a{
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-header ul li a::after{
-  content: '';
-  height: 3px;
-  width: 0;
-  background: #0086b3;
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  transition: 0.3s;
-}
-
-header ul li a:hover::after{
+.nav-search {
   width: 100%;
+  height: 100%;
+  border: 1px solid #fff;
+  border-radius: 48px;
+  text-align: center;
+  outline: none;
+  font-size: 18px;
 }
 
-main{
-  background: #84ffff;
-  grid-area: main;
-  padding-top: var(--main-padding);
+.nav-right{
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  font-size: 18px;
+}
+
+.nav-right a{
+  height: 100%;
+  width: 60px;
+  background: var(--primary-color);
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.nav-right a:hover{
+  border: 2px solid #fff;
 }
 
 .content1 {
-  background: #6fffd2;
+  background: #e6eeff;
   grid-area: content1;
-  padding-top: var(--main-padding);
-}
-
-.content1 h1{
-  font-size: 70px;
-  margin-top: 20px auto;
 }
 
 .content2 {
-  background: #64ffda;
+  background: #ccddff;
   grid-area: content2;
-  padding-top: var(--main-padding);
-}
-
-.content2 p{
-  font-weight: 100;
-  line-height: 25px;
-}
-
-.content2 a{
-  text-decoration: none;
-  color: #53bd91;
-}
-
-.content2 a:hover{
-  cursor: pointer;
-  color: #5d9980;
-  text-decoration: underline;
 }
 
 .content3 {
-  background: #73ffba;
+  background: #b3ccff;
   grid-area: content3;
-  padding-top: var(--main-padding);
 }
 
-.content3 button {
-  width: 200px;
-  padding: 15px 0;
-  text-align: center;
-  margin: 20px 10px;
-  border-radius: 25px;
-  font-weight: bold;
-  border: 2px solid #0086b3;
-  background: transparent;
-  color: #fff;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
+.content4 {
+  background: #99bbff;
+  grid-area: content4;
 }
 
-.content3 span{
-  background: #0086b3;
-  height: 100%;
-  width: 0%;
-  border-radius: 25px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: -1;
-  transition: 0.3s;
+.content5 {
+  background: #80aaff;
+  grid-area: content5;
 }
 
-.content3 button:hover span{
-  width: 100%;
+.content6 {
+  background: #6699ff;
+  grid-area: content6;
+}
+
+.content7 {
+  background: #4d88ff;
+  grid-area: content7;
+}
+
+.content8 {
+  background: #3377ff;
+  grid-area: content8;
 }
 
 footer {
-  background: #1de9b6;
+  background: var(--secondary-color);
   grid-area: footer;
-  padding-top: var(--main-padding);
+  padding: var(--main-padding);
 }
 
 @media only screen and (max-width:550px) {
-  .container {
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.8fr 0.4fr 2.2fr 1.2fr 1fr;
+  .content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.4fr 2fr 1fr 1fr 1fr 1fr 1fr 0.2fr;
     grid-template-areas:
-      "header"
-      "main"
-      "content1"
-      "content2"
-      "content3"
-      "footer";
+      "header header"
+      "content1 content1"
+      "content2 content2"
+      "content3 content3"
+      "content4 content5"
+      "content6 content7"
+      "content8 content8"
+      "footer footer";
   }
+
 }
