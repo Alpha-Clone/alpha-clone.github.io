@@ -2,12 +2,16 @@
 :root {
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
-  --menu-primary-bg-color: #222;
-  --menu-secondary-bg-color: #444;
-  --content-bg-color: #333;
-  --primary-color: #33ff99;
-  --secondary-color: #00e673;
-  --main-transition: 0.8s;
+
+  --color_0: #fff; /*font*/
+  --color_1: #111; /*font2*/
+  --color_2: #db7637; /*font link*/
+  --color_3: #00e673; /*Content*/
+
+  --bg-color_0: #333; /*Menu*/
+  --bg-color_1: linear-gradient(#6f6bc0, #fb9272, #6f6bc0);; /*Background*/
+  --bg-color_2: #444; /*Menu when active*/
+  --bg-color_3: #fff; /*Inner Content*/
   --main-padding: .3rem;
 }
 
@@ -20,39 +24,44 @@
 html {
   color: #fff;
   overflow-y: scroll;
-  scrollbar-color: var(--menu-secondary-bg-color) var(--menu-primary-bg-color);
+  scrollbar-color: var(--bg-color_2) var(--bg-color_0);
   scrollbar-width: thin;
 }
 
-body {
-  background: var(--content-bg-color);
-}
-
 /* Works not in Firefox */
-body::-webkit-scrollbar {
+html::-webkit-scrollbar {
   width: 0.5rem;
 }
-body::-webkit-scrollbar-track {
-  background: var(--menu-secondary-bg-color);
+html::-webkit-scrollbar-track {
+  background: var(--bg-color_2);
 }
-body::-webkit-scrollbar-thumb {
-  background: var(--menu-primary-bg-color);
+html::-webkit-scrollbar-thumb {
+  background: var(--bg-color_0);
+}
+
+body {
+  background: var(--bg-color_1);
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #222;
+  background: var(--bg-color_0);
   position: fixed;
   width: 100%;
   z-index: 1001;
-  box-shadow: 0 0 .3rem rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.8);
 }
 
 .brand-title {
   font-size: 1.5rem;
   margin: .5rem;
+}
+
+.brand-title a{
+  text-decoration: none;
+  color: var(--color_0);
 }
 
 .navbar-links ul {
@@ -66,7 +75,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .navbar-links li a{
-  display: block;
   text-decoration: none;
   color: #fff;
   display: block;
@@ -74,7 +82,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .navbar-links li:hover {
-  background: var(--menu-secondary-bg-color);
+  background: var(--bg-color_2);
 }
 
 .toggle-button {
@@ -91,126 +99,115 @@ body::-webkit-scrollbar-thumb {
 .toggle-button .bar {
   height: 3px;
   width: 100%;
-  background: #fff;
+  background: var(--color_0);
   border-radius: 10px;
+}
+
+.header-space {
+  display: block;
+  top: 0;
+  height: 44px;
+  background: transparent;
 }
 
 /* Content */
 .content {
-  height: 150vh;
+  height: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1.2fr 1.2fr 1.2fr 1.2fr;
+  grid-template-columns: 35% 15% 15% 35%;
+  grid-template-rows: auto;
   grid-template-areas:
-    "content1 content1 content1 content1"
-    "content2 content2 content3 content3"
-    "content4 content5 content6 content7"
-    "content8 content8 content8 content8";
+    "content0 content0 content0 content0"
+    "content1 content2 content2 content2"
+    "content3 content3 content3 content4"
+    "content5 content6 content6 content6"
+    "content7 content7 content7 content7";
   /* grid-gap: 0.2rem; */
   text-align: center;
-  padding: 0 10%;
+  margin: 0 .8rem;
+  align-items: center;
+  background-color: var(--bg-color_3);
+}
+
+.content img {
+  width: 100%;
+  height: auto;
+  min-width: 50px;
+}
+
+.content p{
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+  color: var(--color_1);
+}
+
+.content0 {
+  grid-area: content0;
 }
 
 .content1 {
-  background: #e6eeff;
-  padding: var(--main-padding);
   grid-area: content1;
+  margin-left: 15%;
 }
 
 .content2 {
-  background: #ccddff;
-  padding: var(--main-padding);
   grid-area: content2;
 }
 
 .content3 {
-  background: #b3ccff;
-  padding: var(--main-padding);
   grid-area: content3;
 }
 
 .content4 {
-  background: #99bbff;
-  padding: var(--main-padding);
   grid-area: content4;
+  margin-right: 15%;
 }
 
 .content5 {
-  background: #80aaff;
-  padding: var(--main-padding);
   grid-area: content5;
+  margin-left: 15%;
 }
 
 .content6 {
-  background: #6699ff;
-  padding: var(--main-padding);
   grid-area: content6;
 }
 
 .content7 {
-  background: #4d88ff;
-  padding: var(--main-padding);
   grid-area: content7;
+  padding: 2rem 0;
 }
 
-.content8 {
-  background: #3377ff;
-  padding: var(--main-padding);
-  grid-area: content8;
+.content7 p{
+  text-transform: none;
 }
 
-/* SVG Content */
-.content svg {
-  width: 80%;
-  min-width: 2rem;
-  filter: grayscale(80%);
-  transition: var(--main-transition);
+.content7 p a{
+  text-decoration: none;
+  color: var(--color_2);
 }
 
-.content svg:hover {
-  filter: grayscale(0%);
-  transition: var(--main-transition);
-}
-
-.fa-primary {
-  color: var(--primary-color);
-}
-.fa-secondary {
-  color: var(--secondary-color);
+.content7 p a:hover{
+  color: #fc9a5d;
 }
 
 .footer {
-  background: var(--menu-primary-bg-color);
-  padding: var(--main-padding);
+  background: var(--bg-color_0);
   text-align: center;
-}
-
-/* Splash */
-#splash {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background: var(--menu-primary-bg-color);
-  z-index: 1002;
-  transition: opacity var(--main-transition);
-}
-
-#splash.fade {
-  opacity: 0;
-  z-index: 0;
+  padding: 1.5rem 0;
 }
 
 /* Tablet */
 @media (max-width:1000px) {
-  .content {
-    padding: 0 20px;
-  }
+
 }
 
 /* Mobile */
-@media (max-width:450px) {
+@media (max-width:455px) {
+  html {
+    scrollbar-width: auto;
+  }
+
   .toggle-button {
     display: flex;
   }
@@ -219,6 +216,7 @@ body::-webkit-scrollbar-thumb {
     display: none;
     width: 100%;
   }
+
   .navbar {
     flex-direction: column;
     align-items: flex-start;
@@ -244,14 +242,15 @@ body::-webkit-scrollbar-thumb {
   /* Content */
   .content {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
     grid-template-areas:
-      "content1 content1"
-      "content2 content2"
-      "content3 content3"
-      "content4 content5"
-      "content6 content7"
-      "content8 content8";
-    padding: 0 5px;
+      "content0 content0"
+      "content1 content2"
+      "content3 content4"
+      "content5 content6"
+      "content7 content7";
+  }
+  .content p{
+    font-size: 1rem;
   }
 }
