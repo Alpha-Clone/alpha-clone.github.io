@@ -147,7 +147,7 @@ iframe {
   margin-top: 50px;
   border-radius: 10px;
 }
-button {
+.btn, button{
   background-color: var(--bg-color-button) !important;
   margin-left: auto;
   margin-right: auto;
