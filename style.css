@@ -13,9 +13,11 @@
   --color-p: #3c4858;
   --color-h: #282828;
   --color-h2: #3778ae;
+  --bg-color-button: #3778ae;
   --bg-color-footer: #fff;
   --color-footer: #3778ae;
   --color-footer-hover: #00ab7e;
+
 
   --font-size-1: 22px;
   --font-size-headline: 44px;
@@ -144,4 +146,21 @@ iframe {
   margin-bottom: 50px;
   margin-top: 50px;
   border-radius: 10px;
+}
+button {
+  background-color: var(--bg-color-button) !important;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+button:hover {
+  background-color: var(--color-header-hover) !important;
+}
+.button-link > a{
+  text-decoration: none !important;
+}
+article {
+  margin: 60px 0;
 }
